@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Tabs 1.9.0
+ * jQuery UI Tabs 1.9.1
  * http://jqueryui.com
  *
  * Copyright 2012 jQuery Foundation and other contributors
@@ -22,15 +22,12 @@ function getNextTabId() {
 }
 
 function isLocal( anchor ) {
-	// clone the node to work around IE 6 not normalizing the href property
-	// if it's manually set, i.e., a.href = "#foo" kills the normalization
-	anchor = anchor.cloneNode( false );
 	return anchor.hash.length > 1 &&
 		anchor.href.replace( rhash, "" ) === location.href.replace( rhash, "" );
 }
 
 $.widget( "ui.tabs", {
-	version: "1.9.0",
+	version: "1.9.1",
 	delay: 300,
 	options: {
 		active: null,
@@ -48,10 +45,10 @@ $.widget( "ui.tabs", {
 	},
 
 	_create: function() {
-		var panel,
-			that = this,
+		var that = this,
 			options = this.options,
-			active = options.active;
+			active = options.active,
+			locationHash = location.hash.substring( 1 );
 
 		this.running = false;
 
@@ -80,9 +77,9 @@ $.widget( "ui.tabs", {
 
 		if ( active === null ) {
 			// check the fragment identifier in the URL
-			if ( location.hash ) {
-				this.anchors.each(function( i, anchor ) {
-					if ( anchor.hash === location.hash ) {
+			if ( locationHash ) {
+				this.tabs.each(function( i, tab ) {
+					if ( $( tab ).attr( "aria-controls" ) === locationHash ) {
 						active = i;
 						return false;
 					}
@@ -91,7 +88,7 @@ $.widget( "ui.tabs", {
 
 			// check for a tab marked active via a class
 			if ( active === null ) {
-				active = this.tabs.filter( ".ui-tabs-active" ).index();
+				active = this.tabs.index( this.tabs.filter( ".ui-tabs-active" ) );
 			}
 
 			// no active tab, set to false
@@ -297,8 +294,7 @@ $.widget( "ui.tabs", {
 	},
 
 	refresh: function() {
-		var next,
-			options = this.options,
+		var options = this.options,
 			lis = this.tablist.children( ":has(a[href])" );
 
 		// get disabled tabs from class attribute from HTML
@@ -897,16 +893,16 @@ if ( $.uiBackCompat !== false ) {
 		_ajaxSettings: function( anchor, event, ui ) {
 			var ajaxOptions = this.options.ajaxOptions;
 			return $.extend( {}, ajaxOptions, {
-				error: function( xhr, s, e ) {
+				error: function( xhr, status ) {
 					try {
 						// Passing index avoid a race condition when this method is
 						// called after the user has selected another tab.
 						// Pass the anchor that initiated this request allows
 						// loadError to manipulate the tab content panel via $(a.hash)
 						ajaxOptions.error(
-							xhr, s, ui.tab.closest( "li" ).index(), ui.tab[ 0 ] );
+							xhr, status, ui.tab.closest( "li" ).index(), ui.tab[ 0 ] );
 					}
-					catch ( e ) {}
+					catch ( error ) {}
 				}
 			}, this._superApply( arguments ) );
 		},
@@ -924,7 +920,7 @@ if ( $.uiBackCompat !== false ) {
 			this._super();
 		},
 
-		url: function( index, url ){
+		url: function( index ){
 			this.anchors.eq( index ).removeData( "cache.tabs" );
 			this._superApply( arguments );
 		}
@@ -1160,7 +1156,7 @@ if ( $.uiBackCompat !== false ) {
 			}
 		},
 
-		_eventHandler: function( event ) {
+		_eventHandler: function() {
 			this._superApply( arguments );
 			this.options.selected = this.options.active;
 			if ( this.options.selected === false ) {
@@ -1256,7 +1252,7 @@ if ( $.uiBackCompat !== false ) {
 				this._cookie( this.options.active, this.options.cookie );
 			}
 		},
-		_eventHandler: function( event ) {
+		_eventHandler: function() {
 			this._superApply( arguments );
 			if ( this.options.cookie ) {
 				this._cookie( this.options.active, this.options.cookie );

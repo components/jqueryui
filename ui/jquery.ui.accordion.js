@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Accordion 1.9.0
+ * jQuery UI Accordion 1.9.1
  * http://jqueryui.com
  *
  * Copyright 2012 jQuery Foundation and other contributors
@@ -24,7 +24,7 @@ showProps.height = showProps.paddingTop = showProps.paddingBottom =
 	showProps.borderTopWidth = showProps.borderBottomWidth = "show";
 
 $.widget( "ui.accordion", {
-	version: "1.9.0",
+	version: "1.9.1",
 	options: {
 		active: 0,
 		animate: {},
@@ -59,8 +59,8 @@ $.widget( "ui.accordion", {
 			.addClass( "ui-accordion-content ui-helper-reset ui-widget-content ui-corner-bottom" )
 			.hide();
 
-		// don't allow collapsible: false and active: false
-		if ( !options.collapsible && options.active === false ) {
+		// don't allow collapsible: false and active: false / null
+		if ( !options.collapsible && (options.active === false || options.active == null) ) {
 			options.active = 0;
 		}
 		// handle negative values
@@ -75,7 +75,6 @@ $.widget( "ui.accordion", {
 			.show();
 
 		this._createIcons();
-		this.originalHeight = this.element[0].style.height;
 		this.refresh();
 
 		// ARIA
@@ -198,7 +197,6 @@ $.widget( "ui.accordion", {
 				}
 			});
 		if ( this.options.heightStyle !== "content" ) {
-			this.element.css( "height", this.originalHeight );
 			contents.css( "height", "" );
 		}
 	},
@@ -289,7 +287,6 @@ $.widget( "ui.accordion", {
 			heightStyle = this.options.heightStyle,
 			parent = this.element.parent();
 
-		this.element.css( "height", this.originalHeight );
 
 		if ( heightStyle === "fill" ) {
 			// IE 6 treats height like minHeight, so we need to turn off overflow
@@ -331,10 +328,6 @@ $.widget( "ui.accordion", {
 					maxHeight = Math.max( maxHeight, $( this ).height( "" ).height() );
 				})
 				.height( maxHeight );
-		}
-
-		if ( heightStyle !== "content" ) {
-			this.element.height( this.element.height() );
 		}
 	},
 
@@ -603,7 +596,7 @@ if ( $.uiBackCompat !== false ) {
 				_create.call( this );
 			},
 
-			_setOption: function( key, value ) {
+			_setOption: function( key ) {
 				if ( key === "autoHeight" || key === "clearStyle" || key === "fillSpace" ) {
 					this.options.heightStyle = this._mergeHeightStyle();
 				}

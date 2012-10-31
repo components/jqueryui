@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Droppable 1.9.0
+ * jQuery UI Droppable 1.9.1
  * http://jqueryui.com
  *
  * Copyright 2012 jQuery Foundation and other contributors
@@ -17,7 +17,7 @@
 (function( $, undefined ) {
 
 $.widget("ui.droppable", {
-	version: "1.9.0",
+	version: "1.9.1",
 	widgetEventPrefix: "drop",
 	options: {
 		accept: '*',

@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Button 1.9.0
+ * jQuery UI Button 1.9.1
  * http://jqueryui.com
  *
  * Copyright 2012 jQuery Foundation and other contributors
@@ -42,7 +42,7 @@ var lastActive, startXPos, startYPos, clickDragged,
 	};
 
 $.widget( "ui.button", {
-	version: "1.9.0",
+	version: "1.9.1",
 	defaultElement: "<button>",
 	options: {
 		disabled: null,
@@ -282,7 +282,7 @@ $.widget( "ui.button", {
 	},
 
 	refresh: function() {
-		var isDisabled = this.element.is( ":disabled" );
+		var isDisabled = this.element.is( ":disabled" ) || this.element.hasClass( "ui-button-disabled" );
 		if ( isDisabled !== this.options.disabled ) {
 			this._setOption( "disabled", isDisabled );
 		}
@@ -356,7 +356,7 @@ $.widget( "ui.button", {
 });
 
 $.widget( "ui.buttonset", {
-	version: "1.9.0",
+	version: "1.9.1",
 	options: {
 		items: "button, input[type=button], input[type=submit], input[type=reset], input[type=checkbox], input[type=radio], a, :data(button)"
 	},

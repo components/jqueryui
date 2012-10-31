@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Menu 1.9.0
+ * jQuery UI Menu 1.9.1
  * http://jqueryui.com
  *
  * Copyright 2012 jQuery Foundation and other contributors
@@ -18,7 +18,7 @@
 var mouseHandled = false;
 
 $.widget( "ui.menu", {
-	version: "1.9.0",
+	version: "1.9.1",
 	defaultElement: "<ul>",
 	delay: 300,
 	options: {
