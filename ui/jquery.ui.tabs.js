@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Tabs 1.9.1
+ * jQuery UI Tabs 1.9.2
  * http://jqueryui.com
  *
  * Copyright 2012 jQuery Foundation and other contributors
@@ -23,11 +23,16 @@ function getNextTabId() {
 
 function isLocal( anchor ) {
 	return anchor.hash.length > 1 &&
-		anchor.href.replace( rhash, "" ) === location.href.replace( rhash, "" );
+		anchor.href.replace( rhash, "" ) ===
+			location.href.replace( rhash, "" )
+				// support: Safari 5.1
+				// Safari 5.1 doesn't encode spaces in window.location
+				// but it does encode spaces from anchors (#8777)
+				.replace( /\s/g, "%20" );
 }
 
 $.widget( "ui.tabs", {
-	version: "1.9.1",
+	version: "1.9.2",
 	delay: 300,
 	options: {
 		active: null,
@@ -722,6 +727,8 @@ $.widget( "ui.tabs", {
 			}
 		});
 
+		this.panels.show();
+
 		if ( this.options.heightStyle !== "content" ) {
 			this.panels.css( "height", "" );
 		}
@@ -1180,15 +1187,20 @@ if ( $.uiBackCompat !== false ) {
 			}
 		},
 		_trigger: function( type, event, data ) {
-			var ret = this._superApply( arguments );
+			var tab, panel,
+				ret = this._superApply( arguments );
+
 			if ( !ret ) {
 				return false;
 			}
-			if ( type === "beforeActivate" && data.newTab.length ) {
+
+			if ( type === "beforeActivate" ) {
+				tab = data.newTab.length ? data.newTab : data.oldTab;
+				panel = data.newPanel.length ? data.newPanel : data.oldPanel;
 				ret = this._super( "select", event, {
-					tab: data.newTab.find( ".ui-tabs-anchor" )[ 0],
-					panel: data.newPanel[ 0 ],
-					index: data.newTab.closest( "li" ).index()
+					tab: tab.find( ".ui-tabs-anchor" )[ 0],
+					panel: panel[ 0 ],
+					index: tab.closest( "li" ).index()
 				});
 			} else if ( type === "activate" && data.newTab.length ) {
 				ret = this._super( "show", event, {

@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Button 1.9.1
+ * jQuery UI Button 1.9.2
  * http://jqueryui.com
  *
  * Copyright 2012 jQuery Foundation and other contributors
@@ -42,7 +42,7 @@ var lastActive, startXPos, startYPos, clickDragged,
 	};
 
 $.widget( "ui.button", {
-	version: "1.9.1",
+	version: "1.9.2",
 	defaultElement: "<button>",
 	options: {
 		disabled: null,
@@ -70,12 +70,14 @@ $.widget( "ui.button", {
 		var that = this,
 			options = this.options,
 			toggleButton = this.type === "checkbox" || this.type === "radio",
-			hoverClass = "ui-state-hover" + ( !toggleButton ? " ui-state-active" : "" ),
+			activeClass = !toggleButton ? "ui-state-active" : "",
 			focusClass = "ui-state-focus";
 
 		if ( options.label === null ) {
 			options.label = (this.type === "input" ? this.buttonElement.val() : this.buttonElement.html());
 		}
+
+		this._hoverable( this.buttonElement );
 
 		this.buttonElement
 			.addClass( baseClasses )
@@ -84,7 +86,6 @@ $.widget( "ui.button", {
 				if ( options.disabled ) {
 					return;
 				}
-				$( this ).addClass( "ui-state-hover" );
 				if ( this === lastActive ) {
 					$( this ).addClass( "ui-state-active" );
 				}
@@ -93,7 +94,7 @@ $.widget( "ui.button", {
 				if ( options.disabled ) {
 					return;
 				}
-				$( this ).removeClass( hoverClass );
+				$( this ).removeClass( activeClass );
 			})
 			.bind( "click" + this.eventNamespace, function( event ) {
 				if ( options.disabled ) {
@@ -282,7 +283,9 @@ $.widget( "ui.button", {
 	},
 
 	refresh: function() {
-		var isDisabled = this.element.is( ":disabled" ) || this.element.hasClass( "ui-button-disabled" );
+		//See #8237 & #8828
+		var isDisabled = this.element.is( "input, button" ) ? this.element.is( ":disabled" ) : this.element.hasClass( "ui-button-disabled" );
+
 		if ( isDisabled !== this.options.disabled ) {
 			this._setOption( "disabled", isDisabled );
 		}
@@ -356,7 +359,7 @@ $.widget( "ui.button", {
 });
 
 $.widget( "ui.buttonset", {
-	version: "1.9.1",
+	version: "1.9.2",
 	options: {
 		items: "button, input[type=button], input[type=submit], input[type=reset], input[type=checkbox], input[type=radio], a, :data(button)"
 	},

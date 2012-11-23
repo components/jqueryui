@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Accordion 1.9.1
+ * jQuery UI Accordion 1.9.2
  * http://jqueryui.com
  *
  * Copyright 2012 jQuery Foundation and other contributors
@@ -24,7 +24,7 @@ showProps.height = showProps.paddingTop = showProps.paddingBottom =
 	showProps.borderTopWidth = showProps.borderBottomWidth = "show";
 
 $.widget( "ui.accordion", {
-	version: "1.9.1",
+	version: "1.9.2",
 	options: {
 		active: 0,
 		animate: {},
@@ -325,7 +325,7 @@ $.widget( "ui.accordion", {
 			maxHeight = 0;
 			this.headers.next()
 				.each(function() {
-					maxHeight = Math.max( maxHeight, $( this ).height( "" ).height() );
+					maxHeight = Math.max( maxHeight, $( this ).css( "height", "" ).height() );
 				})
 				.height( maxHeight );
 		}

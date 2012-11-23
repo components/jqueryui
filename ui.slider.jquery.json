@@ -9,10 +9,10 @@
 		"number",
 		"range"
 	],
-	"version": "1.9.1",
+	"version": "1.9.2",
 	"author": {
 		"name": "jQuery Foundation and other contributors",
-		"url": "https://github.com/jquery/jquery-ui/blob/1.9.1/AUTHORS.txt"
+		"url": "https://github.com/jquery/jquery-ui/blob/1.9.2/AUTHORS.txt"
 	},
 	"maintainers": [
 		{
@@ -39,7 +39,7 @@
 	"licenses": [
 		{
 			"type": "MIT",
-			"url": "https://github.com/jquery/jquery-ui/blob/1.9.1/MIT-LICENSE.txt"
+			"url": "https://github.com/jquery/jquery-ui/blob/1.9.2/MIT-LICENSE.txt"
 		}
 	],
 	"bugs": "http://bugs.jqueryui.com/",
@@ -49,9 +49,9 @@
 	"download": "http://jqueryui.com/download/",
 	"dependencies": {
 		"jquery": ">=1.6",
-		"ui.core": "1.9.1",
-		"ui.widget": "1.9.1",
-		"ui.mouse": "1.9.1"
+		"ui.core": "1.9.2",
+		"ui.widget": "1.9.2",
+		"ui.mouse": "1.9.2"
 	},
 	"category": "widget"
 }

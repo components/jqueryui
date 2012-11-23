@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Slider 1.9.1
+ * jQuery UI Slider 1.9.2
  * http://jqueryui.com
  *
  * Copyright 2012 jQuery Foundation and other contributors
@@ -20,7 +20,7 @@
 var numPages = 5;
 
 $.widget( "ui.slider", $.ui.mouse, {
-	version: "1.9.1",
+	version: "1.9.2",
 	widgetEventPrefix: "slide",
 
 	options: {

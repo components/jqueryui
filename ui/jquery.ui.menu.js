@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Menu 1.9.1
+ * jQuery UI Menu 1.9.2
  * http://jqueryui.com
  *
  * Copyright 2012 jQuery Foundation and other contributors
@@ -18,7 +18,7 @@
 var mouseHandled = false;
 
 $.widget( "ui.menu", {
-	version: "1.9.1",
+	version: "1.9.2",
 	defaultElement: "<ul>",
 	delay: 300,
 	options: {
@@ -277,21 +277,35 @@ $.widget( "ui.menu", {
 	},
 
 	refresh: function() {
-		// Initialize nested menus
 		var menus,
 			icon = this.options.icons.submenu,
-			submenus = this.element.find( this.options.menus + ":not(.ui-menu)" )
-				.addClass( "ui-menu ui-widget ui-widget-content ui-corner-all" )
-				.hide()
-				.attr({
-					role: this.options.role,
-					"aria-hidden": "true",
-					"aria-expanded": "false"
-				});
+			submenus = this.element.find( this.options.menus );
 
-		// Don't refresh list items that are already adapted
+		// Initialize nested menus
+		submenus.filter( ":not(.ui-menu)" )
+			.addClass( "ui-menu ui-widget ui-widget-content ui-corner-all" )
+			.hide()
+			.attr({
+				role: this.options.role,
+				"aria-hidden": "true",
+				"aria-expanded": "false"
+			})
+			.each(function() {
+				var menu = $( this ),
+					item = menu.prev( "a" ),
+					submenuCarat = $( "<span>" )
+						.addClass( "ui-menu-icon ui-icon " + icon )
+						.data( "ui-menu-submenu-carat", true );
+
+				item
+					.attr( "aria-haspopup", "true" )
+					.prepend( submenuCarat );
+				menu.attr( "aria-labelledby", item.attr( "id" ) );
+			});
+
 		menus = submenus.add( this.element );
 
+		// Don't refresh list items that are already adapted
 		menus.children( ":not(.ui-menu-item):has(a)" )
 			.addClass( "ui-menu-item" )
 			.attr( "role", "presentation" )
@@ -314,19 +328,6 @@ $.widget( "ui.menu", {
 
 		// Add aria-disabled attribute to any disabled menu item
 		menus.children( ".ui-state-disabled" ).attr( "aria-disabled", "true" );
-
-		submenus.each(function() {
-			var menu = $( this ),
-				item = menu.prev( "a" ),
-				submenuCarat = $( "<span>" )
-					.addClass( "ui-menu-icon ui-icon " + icon )
-					.data( "ui-menu-submenu-carat", true );
-
-			item
-				.attr( "aria-haspopup", "true" )
-				.prepend( submenuCarat );
-			menu.attr( "aria-labelledby", item.attr( "id" ) );
-		});
 
 		// If the active item has been removed, blur the menu
 		if ( this.active && !$.contains( this.element[ 0 ], this.active[ 0 ] ) ) {
