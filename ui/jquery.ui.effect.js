@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Effects 1.10.0
+ * jQuery UI Effects 1.10.1
  * http://jqueryui.com
  *
  * Copyright 2013 jQuery Foundation and other contributors
@@ -849,10 +849,10 @@ $.fn.extend({
 
 	_removeClass: $.fn.removeClass,
 	removeClass: function( classNames, speed, easing, callback ) {
-		return speed ?
+		return arguments.length > 1 ?
 			$.effects.animateClass.call( this,
 				{ remove: classNames }, speed, easing, callback ) :
-			this._removeClass( classNames );
+			this._removeClass.apply( this, arguments );
 	},
 
 	_toggleClass: $.fn.toggleClass,
@@ -890,7 +890,7 @@ $.fn.extend({
 (function() {
 
 $.extend( $.effects, {
-	version: "1.10.0",
+	version: "1.10.1",
 
 	// Saves a set of properties in a data storage
 	save: function( element, set ) {

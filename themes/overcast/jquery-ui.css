@@ -1,7 +1,8 @@
-/*! jQuery UI - v1.10.0 - 2013-01-17
+/*! jQuery UI - v1.10.1 - 2013-02-15
 * http://jqueryui.com
-* Includes: jquery.ui.core.css, jquery.ui.accordion.css, jquery.ui.autocomplete.css, jquery.ui.button.css, jquery.ui.datepicker.css, jquery.ui.dialog.css, jquery.ui.menu.css, jquery.ui.progressbar.css, jquery.ui.resizable.css, jquery.ui.selectable.css, jquery.ui.slider.css, jquery.ui.spinner.css, jquery.ui.tabs.css, jquery.ui.tooltip.css, jquery.ui.theme.css
-* Copyright 2013 jQuery Foundation and other contributors; Licensed MIT */
+* Includes: jquery.ui.core.css, jquery.ui.accordion.css, jquery.ui.autocomplete.css, jquery.ui.button.css, jquery.ui.datepicker.css, jquery.ui.dialog.css, jquery.ui.menu.css, jquery.ui.progressbar.css, jquery.ui.resizable.css, jquery.ui.selectable.css, jquery.ui.slider.css, jquery.ui.spinner.css, jquery.ui.tabs.css, jquery.ui.tooltip.css
+* To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Trebuchet%20MS%2CHelvetica%2CArial%2Csans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=6px&bgColorHeader=dddddd&bgTextureHeader=glass&bgImgOpacityHeader=35&borderColorHeader=bbbbbb&fcHeader=444444&iconColorHeader=999999&bgColorContent=c9c9c9&bgTextureContent=inset_soft&bgImgOpacityContent=50&borderColorContent=aaaaaa&fcContent=333333&iconColorContent=999999&bgColorDefault=eeeeee&bgTextureDefault=glass&bgImgOpacityDefault=60&borderColorDefault=cccccc&fcDefault=3383bb&iconColorDefault=70b2e1&bgColorHover=f8f8f8&bgTextureHover=glass&bgImgOpacityHover=100&borderColorHover=bbbbbb&fcHover=599fcf&iconColorHover=3383bb&bgColorActive=999999&bgTextureActive=inset_hard&bgImgOpacityActive=75&borderColorActive=999999&fcActive=ffffff&iconColorActive=454545&bgColorHighlight=eeeeee&bgTextureHighlight=flat&bgImgOpacityHighlight=55&borderColorHighlight=ffffff&fcHighlight=444444&iconColorHighlight=3383bb&bgColorError=c0402a&bgTextureError=flat&bgImgOpacityError=55&borderColorError=c0402a&fcError=ffffff&iconColorError=fbc856&bgColorOverlay=eeeeee&bgTextureOverlay=flat&bgImgOpacityOverlay=0&opacityOverlay=80&bgColorShadow=aaaaaa&bgTextureShadow=flat&bgImgOpacityShadow=0&opacityShadow=60&thicknessShadow=4px&offsetTopShadow=-4px&offsetLeftShadow=-4px&cornerRadiusShadow=0px
+* Copyright (c) 2013 jQuery Foundation and other contributors Licensed MIT */
 
 /* Layout helpers
 ----------------------------------*/
@@ -32,6 +33,7 @@
 .ui-helper-clearfix:after {
 	content: "";
 	display: table;
+	border-collapse: collapse;
 }
 .ui-helper-clearfix:after {
 	clear: both;
@@ -84,7 +86,6 @@
 	width: 100%;
 	height: 100%;
 }
-
 .ui-accordion .ui-accordion-header {
 	display: block;
 	cursor: pointer;
@@ -113,14 +114,12 @@
 	border-top: 0;
 	overflow: auto;
 }
-
 .ui-autocomplete {
 	position: absolute;
 	top: 0;
 	left: 0;
 	cursor: default;
 }
-
 .ui-button {
 	display: inline-block;
 	position: relative;
@@ -225,7 +224,6 @@ button.ui-button::-moz-focus-inner {
 	border: 0;
 	padding: 0;
 }
-
 .ui-datepicker {
 	width: 17em;
 	padding: .2em .2em 0;
@@ -394,7 +392,6 @@ button.ui-button::-moz-focus-inner {
 	border-right-width: 0;
 	border-left-width: 1px;
 }
-
 .ui-dialog {
 	position: absolute;
 	top: 0;
@@ -454,7 +451,6 @@ button.ui-button::-moz-focus-inner {
 .ui-draggable .ui-dialog-titlebar {
 	cursor: move;
 }
-
 .ui-menu {
 	list-style: none;
 	padding: 2px;
@@ -522,7 +518,6 @@ button.ui-button::-moz-focus-inner {
 	position: static;
 	float: right;
 }
-
 .ui-progressbar {
 	height: 2em;
 	text-align: left;
@@ -541,7 +536,6 @@ button.ui-button::-moz-focus-inner {
 .ui-progressbar-indeterminate .ui-progressbar-value {
 	background-image: none;
 }
-
 .ui-resizable {
 	position: relative;
 }
@@ -610,13 +604,11 @@ button.ui-button::-moz-focus-inner {
 	right: -5px;
 	top: -5px;
 }
-
 .ui-selectable-helper {
 	position: absolute;
 	z-index: 100;
 	border: 1px dotted black;
 }
-
 .ui-slider {
 	position: relative;
 	text-align: left;
@@ -680,7 +672,6 @@ button.ui-button::-moz-focus-inner {
 .ui-slider-vertical .ui-slider-range-max {
 	top: 0;
 }
-
 .ui-spinner {
 	position: relative;
 	display: inline-block;
@@ -736,7 +727,6 @@ button.ui-button::-moz-focus-inner {
 	/* need to fix icons sprite */
 	background-position: -65px -16px;
 }
-
 .ui-tabs {
 	position: relative;/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
 	padding: .2em;
@@ -779,7 +769,6 @@ button.ui-button::-moz-focus-inner {
 	padding: 1em 1.4em;
 	background: none;
 }
-
 .ui-tooltip {
 	padding: 8px;
 	position: absolute;

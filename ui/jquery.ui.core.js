@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Core 1.10.0
+ * jQuery UI Core 1.10.1
  * http://jqueryui.com
  *
  * Copyright 2013 jQuery Foundation and other contributors
@@ -22,7 +22,7 @@ if ( $.ui.version ) {
 }
 
 $.extend( $.ui, {
-	version: "1.10.0",
+	version: "1.10.1",
 
 	keyCode: {
 		BACKSPACE: 8,

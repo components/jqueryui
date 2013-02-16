@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Sortable 1.10.0
+ * jQuery UI Sortable 1.10.1
  * http://jqueryui.com
  *
  * Copyright 2013 jQuery Foundation and other contributors
@@ -22,7 +22,7 @@ function isOverAxis( x, reference, size ) {
 }
 
 $.widget("ui.sortable", $.ui.mouse, {
-	version: "1.10.0",
+	version: "1.10.1",
 	widgetEventPrefix: "sort",
 	ready: false,
 	options: {

@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Droppable 1.10.0
+ * jQuery UI Droppable 1.10.1
  * http://jqueryui.com
  *
  * Copyright 2013 jQuery Foundation and other contributors
@@ -21,7 +21,7 @@ function isOverAxis( x, reference, size ) {
 }
 
 $.widget("ui.droppable", {
-	version: "1.10.0",
+	version: "1.10.1",
 	widgetEventPrefix: "drop",
 	options: {
 		accept: "*",
