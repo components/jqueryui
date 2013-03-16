@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Resizable 1.10.1
+ * jQuery UI Resizable 1.10.2
  * http://jqueryui.com
  *
  * Copyright 2013 jQuery Foundation and other contributors
@@ -24,7 +24,7 @@ function isNumber(value) {
 }
 
 $.widget("ui.resizable", $.ui.mouse, {
-	version: "1.10.1",
+	version: "1.10.2",
 	widgetEventPrefix: "resize",
 	options: {
 		alsoResize: false,

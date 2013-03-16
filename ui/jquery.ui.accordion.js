@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Accordion 1.10.1
+ * jQuery UI Accordion 1.10.2
  * http://jqueryui.com
  *
  * Copyright 2013 jQuery Foundation and other contributors
@@ -24,7 +24,7 @@ showProps.height = showProps.paddingTop = showProps.paddingBottom =
 	showProps.borderTopWidth = showProps.borderBottomWidth = "show";
 
 $.widget( "ui.accordion", {
-	version: "1.10.1",
+	version: "1.10.2",
 	options: {
 		active: 0,
 		animate: {},

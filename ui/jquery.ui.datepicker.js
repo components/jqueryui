@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Datepicker 1.10.1
+ * jQuery UI Datepicker 1.10.2
  * http://jqueryui.com
  *
  * Copyright 2013 jQuery Foundation and other contributors
@@ -13,7 +13,7 @@
  */
 (function( $, undefined ) {
 
-$.extend($.ui, { datepicker: { version: "1.10.1" } });
+$.extend($.ui, { datepicker: { version: "1.10.2" } });
 
 var PROP_NAME = "datepicker",
 	dpuuid = new Date().getTime(),
@@ -2041,7 +2041,7 @@ $.fn.datepicker = function(options){
 $.datepicker = new Datepicker(); // singleton instance
 $.datepicker.initialized = false;
 $.datepicker.uuid = new Date().getTime();
-$.datepicker.version = "1.10.1";
+$.datepicker.version = "1.10.2";
 
 // Workaround for #4055
 // Add another global to avoid noConflict issues with inline event handlers

@@ -1,5 +1,5 @@
 /*!
- * jQuery UI Dialog 1.10.1
+ * jQuery UI Dialog 1.10.2
  * http://jqueryui.com
  *
  * Copyright 2013 jQuery Foundation and other contributors
@@ -36,7 +36,7 @@ var sizeRelatedOptions = {
 	};
 
 $.widget( "ui.dialog", {
-	version: "1.10.1",
+	version: "1.10.2",
 	options: {
 		appendTo: "body",
 		autoOpen: true,
@@ -692,11 +692,23 @@ $.widget( "ui.dialog", {
 		}
 	},
 
+	_allowInteraction: function( event ) {
+		if ( $( event.target ).closest(".ui-dialog").length ) {
+			return true;
+		}
+
+		// TODO: Remove hack when datepicker implements
+		// the .ui-front logic (#8989)
+		return !!$( event.target ).closest(".ui-datepicker").length;
+	},
+
 	_createOverlay: function() {
 		if ( !this.options.modal ) {
 			return;
 		}
 
+		var that = this,
+			widgetFullName = this.widgetFullName;
 		if ( !$.ui.dialog.overlayInstances ) {
 			// Prevent use of anchors and inputs.
 			// We use a delay in case the overlay is created from an
@@ -705,13 +717,10 @@ $.widget( "ui.dialog", {
 				// Handle .dialog().dialog("close") (#4065)
 				if ( $.ui.dialog.overlayInstances ) {
 					this.document.bind( "focusin.dialog", function( event ) {
-						if ( !$( event.target ).closest(".ui-dialog").length &&
-								// TODO: Remove hack when datepicker implements
-								// the .ui-front logic (#8989)
-								!$( event.target ).closest(".ui-datepicker").length ) {
+						if ( !that._allowInteraction( event ) ) {
 							event.preventDefault();
 							$(".ui-dialog:visible:last .ui-dialog-content")
-								.data("ui-dialog")._focusTabbable();
+								.data( widgetFullName )._focusTabbable();
 						}
 					});
 				}
