@@ -5,5 +5,44 @@
     "license": "MIT",
     "require": {
         "components/jquery": ">=1.6"
-    }
+    },
+    "extra": {
+        "component": {
+            "scripts": [
+                "ui/jquery.ui.widget.js",
+                "ui/jquery.ui.tooltip.js",
+                "ui/jquery.ui.tabs.js",
+                "ui/jquery.ui.spinner.js",
+                "ui/jquery.ui.sortable.js",
+                "ui/jquery.ui.slider.js",
+                "ui/jquery.ui.selectable.js",
+                "ui/jquery.ui.resizable.js",
+                "ui/jquery.ui.progressbar.js",
+                "ui/jquery.ui.position.js",
+                "ui/jquery.ui.mouse.js",
+                "ui/jquery.ui.menu.js",
+                "ui/jquery.ui.effect-transfer.js",
+                "ui/jquery.ui.effect-slide.js",
+                "ui/jquery.ui.effect-shake.js",
+                "ui/jquery.ui.effect-pulsate.js",
+                "ui/jquery.ui.effect-highlight.js",
+                "ui/jquery.ui.effect-fold.js",
+                "ui/jquery.ui.effect-fade.js",
+                "ui/jquery.ui.effect-explde.js",
+                "ui/jquery.ui.effect-drop.js",
+                "ui/jquery.ui.effect-clip.js",
+                "ui/jquery.ui.effect-bounce.js",
+                "ui/jquery.ui.effect-blind.js",
+                "ui/jquery.ui.droppable.js",
+                "ui/jquery.ui.draggable.js",
+                "ui/jquery.ui.dialog.js",
+                "ui/jquery.ui.datepicker.js",
+                "ui/jquery.ui.core.js",
+                "ui/jquery.ui.button.js",
+                "ui/jquery.ui.autocomplete.js",
+                "ui/jquery.ui.accordion.js"
+            ]
+        }
+    },
+    "minimum-stability": "dev"
 }
