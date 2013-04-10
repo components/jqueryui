@@ -41,8 +41,10 @@
                 "ui/jquery.ui.button.js",
                 "ui/jquery.ui.autocomplete.js",
                 "ui/jquery.ui.accordion.js"
-            ]
+            ],
+            "shim": {
+                "deps": ["jquery"]
+            }
         }
-    },
-    "minimum-stability": "dev"
+    }
 }
