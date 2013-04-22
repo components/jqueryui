@@ -4,46 +4,60 @@
     "description": "jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library. Whether you're building highly interactive web applications or you just need to add a date picker to a form control, jQuery UI is the perfect choice.",
     "license": "MIT",
     "require": {
-        "components/jquery": ">=1.6"
+        "components/jquery": ">=1.8"
     },
+    "authors": [
+        {
+            "name": "jQuery UI Team",
+            "homepage": "http://jqueryui.com/about"
+        },
+        {
+            "name": "Scott Gonzalez",
+            "email": "scott.gonzalez@gmail.com",
+            "homepage": "http://scottgonzalez.com"
+        },
+        {
+            "name": "Joern Zaefferer",
+            "email": "joern.zaefferer@gmail.com",
+            "homepage": "http://bassistance.de"
+        },
+        {
+            "name": "Kris Borchers",
+            "email": "kris.borchers@gmail.com",
+            "homepage": "http://krisborchers.com"
+        },
+        {
+            "name": "Corey Frang",
+            "email": "gnarf37@gmail.com",
+            "homepage": "http://gnarf.net"
+        },
+        {
+            "name": "Mike Sherov",
+            "email": "mike.sherov@gmail.com",
+            "homepage": "http://mike.sherov.com"
+        },
+        {
+            "name": "TJ VanToll",
+            "email": "tj.vantoll@gmail.com",
+            "homepage": "http://tjvantoll.com"
+        }
+    ],
     "extra": {
         "component": {
             "scripts": [
-                "ui/jquery.ui.widget.js",
-                "ui/jquery.ui.tooltip.js",
-                "ui/jquery.ui.tabs.js",
-                "ui/jquery.ui.spinner.js",
-                "ui/jquery.ui.sortable.js",
-                "ui/jquery.ui.slider.js",
-                "ui/jquery.ui.selectable.js",
-                "ui/jquery.ui.resizable.js",
-                "ui/jquery.ui.progressbar.js",
-                "ui/jquery.ui.position.js",
-                "ui/jquery.ui.mouse.js",
-                "ui/jquery.ui.menu.js",
-                "ui/jquery.ui.effect-transfer.js",
-                "ui/jquery.ui.effect-slide.js",
-                "ui/jquery.ui.effect-shake.js",
-                "ui/jquery.ui.effect-pulsate.js",
-                "ui/jquery.ui.effect-highlight.js",
-                "ui/jquery.ui.effect-fold.js",
-                "ui/jquery.ui.effect-fade.js",
-                "ui/jquery.ui.effect-explde.js",
-                "ui/jquery.ui.effect-drop.js",
-                "ui/jquery.ui.effect-clip.js",
-                "ui/jquery.ui.effect-bounce.js",
-                "ui/jquery.ui.effect-blind.js",
-                "ui/jquery.ui.droppable.js",
-                "ui/jquery.ui.draggable.js",
-                "ui/jquery.ui.dialog.js",
-                "ui/jquery.ui.datepicker.js",
-                "ui/jquery.ui.core.js",
-                "ui/jquery.ui.button.js",
-                "ui/jquery.ui.autocomplete.js",
-                "ui/jquery.ui.accordion.js"
+                "ui/jquery-ui.custom.js"
+            ],
+            "files": [
+                "ui/i18n/jquery.*.js",
+                "themes/*",
+                "themes/*/*",
+                "themes/*/*/*"
             ],
             "shim": {
-                "deps": ["jquery"]
+                "deps": [
+                    "jquery"
+                ],
+                "exports": "jQuery"
             }
         }
     }
