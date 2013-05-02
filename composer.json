@@ -44,6 +44,7 @@
     ],
     "extra": {
         "component": {
+            "name": "jquery-ui",
             "scripts": [
                 "ui/jquery-ui.custom.js"
             ],
