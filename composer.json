@@ -46,11 +46,13 @@
         "component": {
             "name": "jquery-ui",
             "scripts": [
-                "ui/jquery-ui.custom.js"
+                "ui/jquery-ui.js"
             ],
             "files": [
-                "ui/i18n/jquery.*.js",
-                "themes/*",
+                "ui/jquery.ui.*.js",
+                "ui/i18n/*.js",
+                "ui/minified/*.js",
+                "ui/minified/i18n/*.js",
                 "themes/*/*",
                 "themes/*/*/*"
             ],
