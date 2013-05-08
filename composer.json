@@ -49,12 +49,8 @@
                 "ui/jquery-ui.js"
             ],
             "files": [
-                "ui/jquery.ui.*.js",
-                "ui/i18n/*.js",
-                "ui/minified/*.js",
-                "ui/minified/i18n/*.js",
-                "themes/*/*",
-                "themes/*/*/*"
+                "ui/**",
+                "themes/**"
             ],
             "shim": {
                 "deps": [
