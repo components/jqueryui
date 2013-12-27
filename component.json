@@ -1,7 +1,7 @@
 {
   "name": "jquery-ui",
   "repo": "components/jqueryui",
-  "version": "1.10.2",
+  "version": "1.10.3",
   "scripts": [
     "ui/jquery-ui.custom.js"
   ],
