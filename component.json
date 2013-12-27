@@ -2,8 +2,9 @@
   "name": "jquery-ui",
   "repo": "components/jqueryui",
   "version": "1.10.3",
+  "license": "MIT",
   "scripts": [
-    "ui/jquery-ui.custom.js"
+    "ui/jquery-ui.js"
   ],
   "dependencies": {
     "components/jquery": ">= 1.8"
