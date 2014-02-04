@@ -8,6 +8,6 @@
   ],
   "main": "ui/jquery-ui.js",
   "dependencies": {
-    "components/jquery": ">= 1.8"
+    "components/jquery": "*"
   }
 }
