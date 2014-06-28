@@ -46,7 +46,7 @@
         "component": {
             "name": "jquery-ui",
             "scripts": [
-                "ui/jquery-ui.js"
+                "./jquery-ui.js"
             ],
             "files": [
                 "ui/**",
