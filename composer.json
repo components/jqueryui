@@ -50,7 +50,8 @@
             ],
             "files": [
                 "ui/**",
-                "themes/**"
+                "themes/**",
+                "jquery-ui.min.js"
             ],
             "shim": {
                 "deps": [
