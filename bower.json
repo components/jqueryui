@@ -4,6 +4,8 @@
   "main": [
     "jquery-ui.js"
   ],
+  "ignore": [
+  ],
   "dependencies": {
     "jquery": ">=1.6"
   }
