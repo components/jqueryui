@@ -56,6 +56,7 @@
 			"url": "https://github.com/jquery/jquery-ui/blob/1-11-stable/LICENSE.txt"
 		}
 	],
+	"main": "jquery-ui.js",
 	"dependencies": {},
 	"devDependencies": {
 		"grunt": "~0.3.17",
